@@ -5,9 +5,11 @@ import { ValidationPipe } from '@nestjs/common';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  const port = process.env.PORT || 3000; // Default to 3000 if PORT is not specified in environment
+  const port = process.env.PORT || 5000; // Default to 5000 if PORT is not specified in environment
 
   app.useGlobalPipes(new ValidationPipe());
+
+  app.enableCors();
 
   await app.listen(port);
 }
